@@ -4,11 +4,14 @@ export const fetchSuggestion = createAsyncThunk(
   /* Task 15: Complete the `createAsyncThunk()` function to load a suggestion from 
     this URL: http://localhost:3004/api/suggestion */
   "suggestion/fetchSuggestion",
-  async (thunkAPI) => {
-    const result = await fetch("http://localhost:3004/api/suggestion").then(
-      (data) => data.json()
-    );
-    return result;
+  async (api) => {
+    const result = await 
+    fetch("http://localhost:3004/api/suggestion")
+    .then((data) => data.json()
+    )
+    console.log(result.data)
+
+    return result.data;
   }
 );
 
@@ -29,11 +32,12 @@ const options = {
     },
     [fetchSuggestion.fulfilled]: (state, { payload }) => {
       state.loading = false;
-      state.entities = payload;
+      state.suggestion = payload;
       state.error = false;
     },
     [fetchSuggestion.rejected]: (state) => {
       state.loading = false;
+      state.error = true;
     }
   },
 };
@@ -47,4 +51,4 @@ export default suggestionSlice.reducer;
 
 export const selectLoading = (state) => state.suggestion.loading;
 export const selectError = (state) => state.suggestion.error;
-export const selectSuggestion = (state) => state.suggestion;
+export const selectSuggestion = (state) => state.suggestion.suggestion;

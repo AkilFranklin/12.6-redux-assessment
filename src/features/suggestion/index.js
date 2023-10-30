@@ -13,6 +13,7 @@ export default function Suggestion() {
   // Task 19: Call useSelector() with the selectSuggestion() selector
   // The component needs to access the `imageUrl` and `caption` properties of the suggestion object.
   const { imageUrl, caption } = useSelector(selectSuggestion);
+  console.log(imageUrl)
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const dispatch = useDispatch();
