@@ -1,4 +1,5 @@
-# Starter redux assessment: Doggiegram
+# Doggiegram Project Submission
+Project is part of the Thinkful course and involves working with redux for managing the state of the application. 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
